@@ -1,0 +1,44 @@
+CREATE DATABASE Pokemon
+CREATE TABLE Pokemons      (
+    ID   INT IDENTITY PRIMARY KEY,
+    NAMES               VARCHAR(100),
+    HEIGHT              VARCHAR(40),
+    WEIGH               VARCHAR(50)
+)
+
+CREATE TABLE Types  (
+    ID  INT IDENTITY PRIMARY KEY,
+    NAMES VARCHAR(100) UNIQUE
+    
+    
+)
+
+
+CREATE TABLE PokemonType   (
+    ID    INT IDENTITY PRIMARY KEY,
+    POKEMONID   INT,
+    TYPEID   INT,
+    FOREIGN KEY (POKEMONID)
+    REFERENCES Pokemons (ID)
+)
+
+ALTER TABLE PokemonType 
+ADD FOREIGN KEY (TYPEID)
+REFERENCES Types(ID)
+
+
+INSERT INTO Pokemons (WEIGH, HEIGHT, NAMES)
+    VALUES (70, 7, 'Bulbasaur')
+
+INSERT INTO Pokemons (WEIGH, HEIGHT, NAMES)
+    VALUES (40, 3, 'Ditto')
+          
+INSERT INTO Types (ID, NAMES)  
+     VALUES (Normal, Grass)
+
+DROP TABLE Pokemons
+
+
+
+
+
